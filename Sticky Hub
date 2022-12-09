@@ -1,0 +1,38 @@
+
+
+local function runScript()
+  local current = ""
+  local placeId = game.PlaceId
+  if placeId == '11445923563' then
+    current = "https://raw.githubusercontent.com/TempXa/Sticky/main/A%20One%20Fruit%20Game"
+  
+  
+end
+
+local ds = game:GetService("DataStoreService")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TempXa/Keys/main/Keys"))()
+    
+_G.keyEnter:GetPropertyChangedSignal("Text"):Connect(function()
+
+if not table.find(_G.Keys,_G.keyEnter.Text) then
+print("Typing or Used")
+else
+if table.find(_G.Redeemed, _G.keyEnter.Text.." = ".. _G.HWID) then
+game.Players.LocalPlayer.PlayerGui.StickyKey:Destroy()
+print("Reused ".._G.keyEnter.Text.." = ".._G.HWID)
+ ds:SetAsync(_G.HWID, _G.Redeemed)
+runScript()
+loadstring(game:HttpGet(current))()
+elseif not table.find(_G.Redeemed, _G.keyEnter.Text.." = ".. _G.HWID) then
+
+game.Players.LocalPlayer.PlayerGui.StickyKey:Destroy()
+table.insert(_G.Redeemed, _G.keyEnter.Text.." = ".._G.HWID) 
+print("Redeemed ".._G.keyEnter.Text.." = ".._G.HWID)
+ds:SetAsync(_G.HWID, _G.Redeemed)
+runScript()
+loadstring(game:HttpGet(current))()
+ 
+ else
+     end
+ end
