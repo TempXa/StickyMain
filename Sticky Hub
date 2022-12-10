@@ -7,10 +7,9 @@ local List = {
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/TempXa/Keys/main/Keys'))()
 
-repeat wait() until _G.Valid
+repeat wait() until _G.LpaosLiwsxXc
     if List[game.PlaceId] ~= nil then
    loadstring(List[tonumber(game.PlaceId)])()    
    else 
     print("Unsupported Game")
 end
- 
